@@ -10,9 +10,17 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
   <body>
-    
-    <iframe src="http://17sing.tw/song/index.php?sid=11705051" width="250px" height="300px" frameborder="0" scrolling="no"></iframe>
-
+    <br>
+    <br>
+    <br>
+    <iframe src="http://17sing.tw/song/index.php?sid=11705051" width="400px" height="600px" frameborder="0" scrolling="no"  id="video_frame"></iframe>
+    <br/><button type="button" onclick="play_video()">Play</button>
+<script>
+function play_video()
+{
+    document.getElementById('video_frame').contentWindow.playVid();
+}
+</script>
   
   </body>
 </html>
