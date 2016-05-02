@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-2.1.1.js"></script>
+</head>
+<body>
+
+<input type="text" name="child_text_input" 
+id="child_text_input" >
+<input type="button" onclick="setButtonText()" 
+value="Set Text into parent button text" />
+<input type="button" onclick="callParent()" 
+value="Call parent page function" />
+
+<script type="text/javascript">
+
+    $(document).ready(function() {
+
+      showmsg = function(){
+        
+         alert('This function called by parent page.');
+      }
+
+      callParent = function(){  // call a function in parent page.
+        
+         parent.replymsg();
+      }
+
+      setButtonText = function(){   //update the button value in parent page.
+     
+         $(parent.document).find('#urlButton').val('value changed by child page');
+         //$(parent.document.querySelector('#urlButton')).val('value changed by child page');
+         //parent.$("#urlButton").val('value changed by child page');
+      }
+
+    });
+
+</script>
+
+</body>
+</html>
