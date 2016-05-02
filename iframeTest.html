@@ -1,3 +1,4 @@
+<!--
 <!doctype>
 <html>
 	<head>
@@ -9,4 +10,58 @@
 <iframe src="http://17sing.tw/song/index.php?sid=11705051" width="250px" height="300px" frameborder="0" scrolling="no"></iframe>
 
 	</body>
+</html>
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<script src="jquery-2.1.1.js"></script>
+</head>
+<body>
+
+<iframe id="childframe" height="800" 
+width="800" src="child.htm" frameborder="1"></iframe>
+
+<script type="text/javascript">
+     $(document).ready(function() {   
+      setText =function(){   // Set value into child page's textox.
+         $('#childframe').contents().find('#child_text_input').val('called by parent frame!');
+         //$('#childframe')[0].contentWindow.$('#child_text_input').val('called by parent frame!');
+         //$(frames["childframe"].document.body).find('#child_text_input').val('called by parent frame!');
+         //$(frames["childframe"].document.body.querySelector('#child_text_input')).val('called by parent frame!');
+         //$(frames["childframe"].document.body.querySelectorAll('#child_text_input')[0]).val('called by parent frame!');
+         //$(frames["childframe"].document.getElementById('child_text_input')).val('called by parent frame!');
+      }
+      getText =function(){    // Retrieve the textbox value from child page.
+         alert($('#childframe').contents().find('#child_text_input').val());    
+         //alert($('#childframe')[0].contentWindow.$('#child_text_input').val());
+         //alert($(frames["childframe"].document.body).find('#child_text_input').val());
+         //alert($(frames["childframe"].document.body.querySelector('#child_text_input')).val());
+         //alert($(frames["childframe"].document.body.querySelectorAll('#child_text_input')[0]).val());
+         //alert($(frames["childframe"].document.getElementById('child_text_input')).val());
+      }
+      redirectURL = function(){     // Redirect the iframe page.
+        
+         $('#childframe').attr('src','http://jquery.com/');  
+      }
+      callChild = function(){    // call the function name 'showmsg' in child web page.
+  
+         $('#childframe')[0].contentWindow.showmsg();
+      }
+      replymsg = function(){
+        
+         alert('This function called by child page.');
+      }     
+    });
+</script>
+<br />
+<input type="button" onclick="setText()" 
+value="Set Text into child textfield" />
+<input type="button" onclick="getText()" 
+value="Get Text into child textfield" />
+<input type="button" onclick="callChild()" 
+value="Call child page function" />
+<input type="button" onclick="redirectURL()" 
+id='urlButton' value="Set child url" />
+</body>
 </html>
