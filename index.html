@@ -25,12 +25,12 @@ width="800" src="child.html" frameborder="1"></iframe>
 
       getText =function(){    // Retrieve the textbox value from child page.
 
-         alert($('#childframe').contents().find('#child_text_input').val());    
+         //alert($('#childframe').contents().find('#child_text_input').val());    
          //alert($('#childframe')[0].contentWindow.$('#child_text_input').val());
          //alert($(frames["childframe"].document.body).find('#child_text_input').val());
          //alert($(frames["childframe"].document.body.querySelector('#child_text_input')).val());
          //alert($(frames["childframe"].document.body.querySelectorAll('#child_text_input')[0]).val());
-         //alert($(frames["childframe"].document.getElementById('child_text_input')).val());
+         alert($(frames["childframe"].document.getElementById('child_text_input')).val());
       }
 
       redirectURL = function(){     // Redirect the iframe page.
